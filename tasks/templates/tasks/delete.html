@@ -1,8 +1,14 @@
-<p>Are you sure you want to delete "{{item}}"?</p>
-
-<a href="{% url 'list' %">Cancel</a>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Confirm">
-</form>
+{% extends "tasks/layout.html" %}
+{% block body %}
+<div class="center-column">
+    <h5 class="item-row heading">Delete Task</h5>
+    <h6 class="text-center">Are you sure you want to delete "{{item}}"?</h6>
+    <div class="text-center">
+        <a class="btn btn-secondary" href="{% url 'list' %}" >Cancel</a>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="Confirm">
+        </form>
+    </div>
+</div>
+{% endblock %}
